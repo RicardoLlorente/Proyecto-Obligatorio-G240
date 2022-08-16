@@ -16,12 +16,32 @@
   </style>
 </head>
 
-<body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+<body >
+  <main >
+
+      <div class="container text-center form" >
+      <img src="img/login.png" alt="">
+      <h1>Inicio de sesión</h1><br><br>
+
+      <h2 class="h3 mb-3 fw-normal">Email</h2>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="mail" placeholder="name@example.com" >
+              <label for="floatingInput">Email</label>
+              <div id="correo_error"class="error">
+
+              </div>
+            </div><br>
+      
+      <h2 class="h3 mb-3 fw-normal">Contraseña</h2>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="contraseña" placeholder="Password"  >
+              <label for="floatingPassword">Contraseña</label>
+              <div id="contra_error" class="error">
+
+              </div>
+            </div><br><br>
+       
+      <button class="w-100 btn btn-lg btn-primary" id="iniciar" type="submit">Ingresar</button>
     </div>
   </main>
   <footer class="text-muted">

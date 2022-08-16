@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
+    let usuario=localStorage.getItem("mail");
+    if(usuario==null){
+        location.href="login.html";
+    }else{
+        document.getElementById("mail").innerHTML=usuario;
+    }
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
