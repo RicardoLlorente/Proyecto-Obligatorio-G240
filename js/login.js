@@ -21,13 +21,23 @@ function inicio_sesion() {
     if (datos_ok) {
         sessionStorage.setItem("mail", correo.value);
         sessionStorage.setItem("clave", contraseña.value);
+        let usuario = sessionStorage.getItem("mail");
         location.href = "index.html";
+        alert("El usuario "+usuario+" ha iniciado sesión correctamente");
+        alert("Bienvenido a la portada de nuestro sitio de e-comerce");
     }
 }
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('iniciar').addEventListener('click', () => {
         inicio_sesion();
     });
-
 })
+
+/* FUNCION PARA  iniciar sesion con googel*/
+/* function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('Email: ' + profile.getEmail()); 
+  } */
