@@ -95,7 +95,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
-
+    /*Seccion para configurar el boton de cerrar sesion de la barra de navegacion */
+    document.getElementById("Cerrar_Sesión").addEventListener("click", function () {
+        sessionStorage.clear();
+        location.href = "login.html"
+    });
+    
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });

@@ -28,6 +28,11 @@ function updateTotalCosts(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    /*Seccion para configurar el boton de cerrar sesion de la barra de navegacion */
+    document.getElementById("Cerrar_Sesión").addEventListener("click", function () {
+        sessionStorage.clear();
+        location.href = "login.html"
+    });
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();
