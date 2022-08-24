@@ -19,34 +19,85 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
+            <ul>
+              <li class="nav-link bg-dark"><a href="products.html">Autos</a></li>
+              <li class="nav-link bg-dark"><a href="products.html">Juguetes</a></li>
+              <li class="nav-link bg-dark"><a href="products.html">Muebles</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="Cerrar_Sesión">Cerrar Sesión</a>
+            <a class="nav-link" href="#" id="usuario">Usuario</a>
+            <ul>
+              <li class="nav-link bg-dark"><a href="my-profile.html">Perfil Personal</a></li>
+              <li class="nav-link bg-dark"><a  href="#" id="Cerrar_sesion">Cerrar sesión</a></li>
+            </ul>
           </li>
         </ul>
       </div>
     </div>
-  </nav>  
+  </nav>
+  
   <main role="main" class="pb-5 container">
     <div class="text-center p-4">
       <h2>Productos</h2>
       <p>Verás aquí todos los productos de la categoría autos.</p>
-  </div>
+    </div>
     <div class="container">
-      <div class="list-group" id="cat-list-container">
-        
-      </div>
       
+      
+      
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="radio" class="btn-check" name="options" id="sortByMoneydesc" checked>
+            <label class="btn btn-light" for="sortByMoneydesc"><i class="fas fa-sort-amount-down mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="sortByMoneyasc" checked>
+            <label class="btn btn-light" for="sortByMoneyasc"><i class="fas fa-sort-amount-up mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="Rel." checked>
+            <label class="btn btn-light" for="Rel."><i class="fas fa-sort-amount-down mr-1">Rel.</i></label>         
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-end my-2">Precio</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterCostMin">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx." id="rangeFilterCostMax">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterCost">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="list-group" id="cat-list-container">
+      </div> 
     </div>
   </main>
   <footer class="text-muted">

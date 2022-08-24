@@ -13,31 +13,41 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
+            <ul>
+              <li class="nav-link bg-dark"><a href="products.html">Autos</a></li>
+              <li class="nav-link bg-dark"><a href="products.html">Juguetes</a></li>
+              <li class="nav-link bg-dark"><a href="products.html">Muebles</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="Cerrar_Cesión">Cerrar Cesión</a>
+            <a class="nav-link" href="#" id="usuario">Usuario</a>
+            <ul>
+              <li class="nav-link bg-dark"><a href="my-profile.html">Perfil Personal</a></li>
+              <li class="nav-link bg-dark"><a  href="#" id="Cerrar_sesion">Cerrar sesión</a></li>
+            </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main>
+   <main>
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>

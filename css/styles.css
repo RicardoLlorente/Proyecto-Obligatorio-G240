@@ -1,3 +1,4 @@
+
 .jumbotron,
 .card-body,
 .container,
@@ -197,10 +198,35 @@ a.custom-card:hover {
 }
 
 .login img{
-  width: 100%;
+  width: 65%;
 
 }
 .error{
   color: darkred ;
   font-size:large;
 }
+.navbar li ul {
+  display:none;
+  position:absolute;
+  min-width:0px;
+  padding: 0%;
+}
+
+.navbar li:hover ul{
+  display:block;
+  margin: left 3px;; 
+}
+.navbar li ul li {
+  position:relative;
+}
+.navbar li a {
+  color:darkgray;
+  margin:0px;
+	display:block;
+}
+.navbar li a:hover{
+  color: #fff;
+}
+
+
+

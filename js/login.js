@@ -36,8 +36,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 
-/* FUNCION PARA  iniciar sesion con googel*/
-/* function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('Email: ' + profile.getEmail()); 
-  } */
