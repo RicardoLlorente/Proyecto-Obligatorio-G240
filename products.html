@@ -51,7 +51,7 @@
   <main role="main" class="pb-5 container">
     <div class="text-center p-4">
       <h2>Productos</h2>
-      <p id="parrafo">Verás aquí todos los productos de la categoría </p>
+      <p id="parrafo">Verás aquí todos los productos de la categoría  </p>
     </div>
     <div class="container">
       
@@ -60,11 +60,11 @@
       <div class="row">
         <div class="col text-end">
           <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-            <input type="radio" class="btn-check" name="options" id="sortByMoneydesc" checked>
-            <label class="btn btn-light" for="sortByMoneydesc"><i class="fas fa-sort-amount-down mr-1">$</i></label>
-            <input type="radio" class="btn-check" name="options" id="sortByMoneyasc" checked>
-            <label class="btn btn-light" for="sortByMoneyasc"><i class="fas fa-sort-amount-up mr-1">$</i></label>
-            <input type="radio" class="btn-check" name="options" id="Rel." checked>
+            <input type="radio" class="btn-check" name="options" id="OrdenPrecioDesc" checked>
+            <label class="btn btn-light" for="OrdenPrecioDesc"><i class="fas fa-sort-amount-down mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="OrdenPrecioAsc" checked>
+            <label class="btn btn-light" for="OrdenPrecioAsc"><i class="fas fa-sort-amount-up mr-1">$</i></label>
+            <input type="radio" class="btn-check" name="options" id="Relevancia" checked>
             <label class="btn btn-light" for="Rel."><i class="fas fa-sort-amount-down mr-1">Rel.</i></label>         
           </div>
         </div>
@@ -76,15 +76,15 @@
             <p class="font-weight-normal text-end my-2">Precio</p>
           </div>
           <div class="col">
-            <input class="form-control" type="number" placeholder="min." id="rangeFilterCostMin">
+            <input class="form-control" type="number" placeholder="min." id="CostoMinimo">
           </div>
           <div class="col">
-            <input class="form-control" type="number" placeholder="máx." id="rangeFilterCostMax">
+            <input class="form-control" type="number" placeholder="máx." id="CostoMaximo">
           </div>
           <div class="col-3 p-0">
             <div class="btn-group" role="group">
-              <button class="btn btn-light btn-block" id="rangeFilterCost">Filtrar</button>
-              <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              <button class="btn btn-light btn-block" id="FiltroRangoPrecios">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="LimpiarCasilla">Limpiar</button>
             </div>
           </div>
         </div>
@@ -94,29 +94,18 @@
     <div class="row">
       <div class="col">
         <p class="font-weight-normal text-end my-2 px-5">Busca tu producto:</p>
+      </div>      
+      <div class="col">
+         <input class="form-control " type="search" placeholder="Buscar articulos" id="buscar">
       </div>
-        
-          <div class="col">
-<!--             <label for="busqueda">Busca tu Producto:</label>
- -->             <input class="form-control " type="search" placeholder="Buscar articulos" id="buscar" oninput="">
-          </div>
-       <!--    <div class="col">
-            <button class="btn btn-light btn-block" id="btnsearch">Buscar</button>
-          </div> -->
-         
     </div>
-
-
-
-
-
-
 
     <div class="row">
       <div class="list-group" id="cat-list-container">
       </div> 
     </div>
   </main>
+  
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -136,7 +125,6 @@
     </div>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 </body>
