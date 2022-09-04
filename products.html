@@ -28,9 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
             <ul>
-              <li class="nav-link bg-dark"><a href="products.html">Autos</a></li>
-              <li class="nav-link bg-dark"><a href="products.html">Juguetes</a></li>
-              <li class="nav-link bg-dark"><a href="products.html">Muebles</a></li>
+              <li class="nav-link bg-dark"><a href="products.html" onclick='localStorage.setItem("catID", 101)'>Autos</a></li>
+              <li class="nav-link bg-dark"><a href="products.html"onclick='localStorage.setItem("catID", 102)'>Juguetes</a></li>
+              <li class="nav-link bg-dark"><a href="products.html"onclick='localStorage.setItem("catID", 103)'>Muebles</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -51,7 +51,7 @@
   <main role="main" class="pb-5 container">
     <div class="text-center p-4">
       <h2>Productos</h2>
-      <p>Verás aquí todos los productos de la categoría autos.</p>
+      <p id="parrafo">Verás aquí todos los productos de la categoría </p>
     </div>
     <div class="container">
       
@@ -91,6 +91,23 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col">
+        <p class="font-weight-normal text-end my-2 px-5">Busca tu producto:</p>
+      </div>
+        
+          <div class="col">
+<!--             <label for="busqueda">Busca tu Producto:</label>
+ -->             <input class="form-control " type="search" placeholder="Buscar articulos" id="buscar" oninput="">
+          </div>
+       <!--    <div class="col">
+            <button class="btn btn-light btn-block" id="btnsearch">Buscar</button>
+          </div> -->
+         
+    </div>
+
+
+
 
 
 
@@ -119,6 +136,7 @@
     </div>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 </body>
