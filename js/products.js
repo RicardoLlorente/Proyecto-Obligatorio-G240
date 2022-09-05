@@ -8,7 +8,7 @@ let ListadeProductos = [];//array donde se cargarán los datos recibidos con los
 ////Constantes para los criterios de orden en los filtros
 const ORDENAR_ASC_POR_COSTO = ">";
 const ORDENAR_DESC_POR_COSTO= "<";
-const ORDER_POR_CANT_VEND = "Vendidos";
+const ORDENAR_POR_CANT_VEND = "Vendidos";
 
 ///variables para mostrar productos solo en un determinado rango de precios 
 let CostoMinimo = undefined;
@@ -46,7 +46,7 @@ function OrdenaProductos(CriterioDeOrden, ListaProd) {
             if (costo1 < costo2) { return 1; }
             return 0;
         });
-    } else if (CriterioDeOrden === ORDER_POR_CANT_VEND) {
+    } else if (CriterioDeOrden === ORDENAR_POR_CANT_VEND) {
         ProductosOrdenados = ListaProd.products.sort(function (a, b) {
             let cantvend1 = parseInt(a.soldCount);
             let cantvend2 = parseInt(b.soldCount);
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     //Este evento configura lo que pasa cuando se apreta en el boton para ordenar los productos 
     // segun su relevancia,  desde el precio mas alto al mas bajo
     document.getElementById("Relevancia").addEventListener("click", function () {
-        OrdenaProductos(ORDER_POR_CANT_VEND,ListadeProductos);
+        OrdenaProductos(ORDENAR_POR_CANT_VEND,ListadeProductos);
         MostrarListaProductos(ListadeProductos);
     });
     //Evento para filtrar en un rango de precios
@@ -174,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
     //Evento para limpiar la casilla de filtro en un rango de precios
     document.getElementById("LimpiarCasilla").addEventListener("click", function () {
-        document.getElementById("rangeFilterCostMin").value = "";
-        document.getElementById("rangeFilterCostMax").value = "";
+        document.getElementById("CostoMinimo").value = "";
+        document.getElementById("CostoMaximo").value = "";
 
         CostoMinimo = undefined;
         CostoMaximo = undefined;
