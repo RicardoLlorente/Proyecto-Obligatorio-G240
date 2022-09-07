@@ -112,8 +112,8 @@ function MostrarInfoProductos(ListaProd) {
             }
         });
         document.getElementById("cat-info-container").innerHTML=htmlContentToAppend;
-}/* 
-btn btn-primary my-3 */
+}
+
 function MostrarComentarios(ListaComment) {
     let comentario
     let htmlContentToAppend = "";
@@ -153,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     envio.addEventListener('click',()=>{ 
         agregar();
         MostrarComentarios(coment_new);
-        coment_new='';
     })
 
 })
