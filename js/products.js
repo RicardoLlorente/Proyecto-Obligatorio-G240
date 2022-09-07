@@ -59,8 +59,8 @@ function OrdenaProductos(CriterioDeOrden, ListaProd) {
     //ordenados con el orden deseado, al campo products de la variable global ListadeProductos.
     ListadeProductos.products=ProductosOrdenados;
 }
-function setCatID(id) {
-    localStorage.setItem("ID", id);
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
 
@@ -74,7 +74,7 @@ function MostrarListaProductos(ListaProd) {
         if (((CostoMinimo == undefined) || (CostoMinimo != undefined && parseInt(Productos.cost) >= CostoMinimo)) &&
             ((CostoMaximo == undefined) || (CostoMaximo != undefined && parseInt(Productos.cost) <= CostoMaximo))) {
             htmlContentToAppend += `
-        <div onclick="setCatID(` + Productos.id + `)" class="list-group-item list-group-item-action cursor-active prod">
+        <div onclick="setProdID(` + Productos.id + `)" class="list-group-item list-group-item-action cursor-active prod">
             <div class="row ">
                 <div class="col-3">
                     <img src="` + Productos.image + `" alt="product image" class="img-thumbnail">
@@ -129,7 +129,7 @@ con el respectivo valor de catID que va a indicar si se quiere leer la seccion d
 
 document.addEventListener("DOMContentLoaded", function (e) {
     let cat_id = localStorage.getItem("catID");
-    getJSONData(PRODUCTS_URL + cat_id + ".json").then(function (resultObj) {
+    getJSONData(PRODUCTS_URL + cat_id + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             ListadeProductos = resultObj.data;
             document.getElementById("parrafo").innerHTML += ListadeProductos.catName.toLowerCase() + '.';

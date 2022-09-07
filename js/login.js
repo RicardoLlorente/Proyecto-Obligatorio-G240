@@ -19,8 +19,8 @@ function inicio_sesion() {
 
     }
     if (datos_ok) {
-        sessionStorage.setItem("mail", correo.value);
-        sessionStorage.setItem("clave", contraseña.value);
+        localStorage.setItem("mail", correo.value);
+        localStorage.setItem("clave", contraseña.value);
         let usuario = sessionStorage.getItem("mail");
         location.href = "index.html";
         alert("El usuario "+usuario+" ha iniciado sesión correctamente");
