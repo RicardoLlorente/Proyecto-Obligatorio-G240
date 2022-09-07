@@ -10,7 +10,7 @@ function agregar(){
     let puntuacion=document.getElementById('puntaje').value;
     let hora=new Date();
     let time=hora.toLocaleString().replace(',','');
-  /*   if(comentario!=''){
+     if(comentario!=''){
         
         let objetoComentario ={"product": localStorage.getItem('prodID'),
             "score": puntuacion,
@@ -19,9 +19,9 @@ function agregar(){
             "dateTime":time 
             }
         coment_new[cant_coment]=objetoComentario;
-        cant_com ent+=1;
+        cant_coment+=1;
 
-    }*/
+    }
    
     
 }
