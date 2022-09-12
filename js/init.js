@@ -52,8 +52,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   }
   /*Seccion para configurar el boton de cerrar sesion de la barra de navegacion */
   document.getElementById("Cerrar_sesion").addEventListener("click", function () {
-      localStorage.clear();
-      location.href = "login.html"
+    localStorage.removeItem('mail');
+    localStorage.removeItem('clave');
+    location.href = "login.html"
   })
   
 })

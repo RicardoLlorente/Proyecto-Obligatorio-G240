@@ -66,10 +66,11 @@
     /* FUNCION PARA  iniciar sesion con googel*/
     function onSignIn(googleUser) {
       let profile = googleUser.getBasicProfile();
+      localStorage.setItem('mail',profile.getEmail())
+      localStorage.setItem('clave', profile.getId())
+      console.log("ID: " + profile.getId());
       console.log("ID: " + profile.getId());
       console.log("Name: " + profile.getName());
-      console.log("ImageURL: " + profile.getImageUrl());
-      console.log("Email: " + profile.getEmail());
     } 
   </script>
   <script src="js/login.js"></script>
