@@ -71,6 +71,12 @@
       console.log("ID: " + profile.getId());
       console.log("ID: " + profile.getId());
       console.log("Name: " + profile.getName());
+      // localStorage.setItem("clave", contraseña.value);
+        let usuario = localStorage.getItem("mail");
+        location.href = "index.html";
+        alert("El usuario "+usuario+" ha iniciado sesión correctamente");
+        alert("Bienvenido a la portada de nuestro sitio de e-comerce");
+    
     } 
   </script>
   <script src="js/login.js"></script>
