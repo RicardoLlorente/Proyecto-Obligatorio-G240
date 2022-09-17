@@ -11,8 +11,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <!-- Intento de configurar OAUTH2 de google -->
   <meta name="google-signin-client_id"
-    content="460627630324-12dttf4jgc111rc0p4rkf08pqhrirgd2.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    content="460627630324-c89ao8k93srbkv9te8ur0tf9o9ichclb.apps.googleusercontent.com">
   <style>
     body {
       background-color: rgb(248, 249, 250);
@@ -67,19 +66,17 @@
     function onSignIn(googleUser) {
       let profile = googleUser.getBasicProfile();
       localStorage.setItem('mail',profile.getEmail())
-      localStorage.setItem('clave', profile.getId())
+      location.href = "index.html";
       console.log("ID: " + profile.getId());
       console.log("ID: " + profile.getId());
       console.log("Name: " + profile.getName());
-      // localStorage.setItem("clave", contraseña.value);
-        let usuario = localStorage.getItem("mail");
-        location.href = "index.html";
-        alert("El usuario "+usuario+" ha iniciado sesión correctamente");
-        alert("Bienvenido a la portada de nuestro sitio de e-comerce");
-    
+      var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
     } 
   </script>
   <script src="js/login.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </body>
 
 </html>

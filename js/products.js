@@ -63,7 +63,6 @@ function setProdID(id) {
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
-
 //función que recibe un arreglo con los productos, y los muestra en pantalla usando metodo innerHTML
 function MostrarListaProductos(ListaProd) {
     let htmlContentToAppend = "";

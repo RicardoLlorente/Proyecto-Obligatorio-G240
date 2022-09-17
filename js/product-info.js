@@ -1,15 +1,21 @@
+                ////////////////////////////////////
+                /////V̳a̳r̳i̳a̳b̳l̳e̳s̳ y̳ C̳o̳n̳s̳t̳a̳n̳t̳e̳s̳ ////////
+                /////////u̳t̳i̳l̳i̳z̳a̳d̳a̳s̳/////////////////
+                ////////////////////////////////////
 let ListadeComentarios=[];
-let ListadeProductos = [];
+let Producto = [];
 let prod_id,cat_id;
 let los_id=[];
 let coment_new=[];
 let ListaCommentNew=[];
-let Com_HTML=[];
 let com_del_usuario=[];
 let cant_coment=0;
 let cant_new_comm=0;
 let com_ant;
 
+    ///////////////////////////////////////////////////////////////////
+    ///////////B̳l̳o̳q̳u̳e̳ d̳e̳ f̳u̳n̳c̳i̳o̳n̳e̳s̳ u̳t̳i̳l̳i̳z̳a̳d̳a̳s̳ e̳n̳ l̳o̳s̳ e̳v̳e̳n̳t̳o̳s̳///////////
+    ///////////////////////////////////////////////////////////////////
 
 function AgregaCero(tiempo){
     if(tiempo<10){
@@ -51,7 +57,6 @@ function agregar(){
    
     
 }
-
 function puntuación(puntos){
     var estrellas='';
     for(let i=0; i<5; i++){
@@ -63,44 +68,32 @@ function puntuación(puntos){
     }
     return estrellas;
 }
-function MostrarInfoProductos(ListaProd) {
+function MostrarInfoProductos(prod) {
     
     let htmlContentToAppend = "";
-    let Productos=ListaProd.products;
-    let categoria=ListaProd.catName;
-
-    Productos.forEach(prod =>{
-        if(prod.id == prod_id){
-            
-            
-            htmlContentToAppend = `
+     htmlContentToAppend = `
            
             <h2>${prod.name}</h2><br>
             <hr>
 
             <p><strong>Precio</strong><br>${prod.currency} ${prod.cost}</p>
             <p><strong>Descripcion</strong><br>${prod.description}</p>
-            <p><strong>Categoria</strong><br>${categoria}</p>
+            <p><strong>Categoria</strong><br>${prod.category}</p>
             <p><strong>Cantidad de vendidos</strong><br>${prod.soldCount}</p>
             <p><strong>Imágenes Ilustrativas</strong><br></p>
-            <div class="row justify-content-md-center">
-                <div class="col-3">
-                    <img src="`+prod.image+`" alt="product image"class="img-thumbnail">
-                </div>
-                
-                <div class="col">
-                    <img src="`+prod.image.replace('1.','2.')+`" alt="product image"class="img-thumbnail">
-                </div>
-                
-                <div class="col">
-                    <img src="`+prod.image.replace('1.','3.')+`" alt="product image"class="img-thumbnail">
-                </div>
-                    
-                <div class="col">
-                    <img src="`+prod.image.replace('1.','4.')+`" alt="product image"class="img-thumbnail">
-                </div>
-            </div>  
+            <div class="row justify-content-md-center">`
             
+            console.log(prod)
+            for(image of prod.images){
+            
+            htmlContentToAppend+=`
+                <div class="col">
+                    <img src="`+image+`" alt="product image" class="img-thumbnail">
+                </div>
+                
+             `
+            }
+            htmlContentToAppend+= `</div>
             <div>
             <br><br><br><br> 
             <h4>Comentarios</h4>            
@@ -130,9 +123,8 @@ function MostrarInfoProductos(ListaProd) {
                 </div>
                
                 `
-            }
-        });
-        document.getElementById("cat-info-container").innerHTML=htmlContentToAppend;
+            
+        document.getElementById("cat-info-container").innerHTML+=htmlContentToAppend;
 }
 function CruzSoloUsuario(comentario,numcom){
     let logeado=localStorage.getItem('mail');
@@ -185,43 +177,44 @@ function borrar_o_no(){
             console.log(los_id);                   
             if(document.getElementById("coment"+los_id[i])!=null){
                 document.getElementById("cruz"+los_id[i]).addEventListener('click',function (e) {
+                
                 document.getElementById("coment"+los_id[i]).remove();
+                
                 console.log(com_del_usuario)
                 com_del_usuario.splice(i,1);
                 
                 console.log("antes de");
-                console.log(com_del_usuario)
+                /* console.log(com_del_usuario)
                 console.log(los_id)
-                console.log(i)
+                console.log(i) */
                 ListadeComentarios.splice(los_id[i]-1,1);
                 los_id.splice(i,1);
                 ListaCommentNew=ListadeComentarios.slice(com_ant,ListadeComentarios.length);
-                console.log("el despues")
+                /* console.log("el despues")
                 console.log(com_del_usuario)
                 console.log(los_id)
-                console.log(i)
+                console.log(i) */
                 localStorage.setItem('new_comments',JSON.stringify(ListaCommentNew));
                 localStorage.setItem('comments',JSON.stringify(ListadeComentarios));
                 localStorage.setItem('Comentarios del usuario',JSON.stringify(com_del_usuario));
             })}
-        console.log(ListadeComentarios);    
+        /* console.log(ListadeComentarios);    
         console.log(com_del_usuario);
-        console.log(los_id);
+        console.log(los_id); */
         }
     }
 }
-
-
+        ////////////////////////////////////////////////////
+        ///////////B̳l̳o̳q̳u̳e̳ d̳e̳ e̳v̳e̳n̳t̳o̳s̳ d̳e̳ l̳a̳ p̳a̳g̳i̳n̳a̳///////////
+        ////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", function (e) {
     
    
     prod_id = localStorage.getItem("prodID");
-    cat_id = localStorage.getItem("catID");
-    
-    getJSONData(PRODUCTS_URL + cat_id + EXT_TYPE).then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_URL + prod_id + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            ListadeProductos = resultObj.data;
-            MostrarInfoProductos(ListadeProductos);      
+            Producto = resultObj.data;
+            MostrarInfoProductos(Producto);      
         }
     });
     
@@ -230,13 +223,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ListadeComentarios = resultObj.data;
             com_ant=ListadeComentarios.length;
             ListaCommentNew = JSON.parse(localStorage.getItem("new_comments"));
+            
             if(ListaCommentNew!=null){
                 ListadeComentarios=ListadeComentarios.concat(ListaCommentNew);
             }else{
                 ListaCommentNew=[];
             }
             
-            MostrarComentarios(ListadeComentarios); 
+            MostrarComentarios(ListadeComentarios);
+
             localStorage.setItem('comments',JSON.stringify(ListadeComentarios));
             borrar_o_no();   
         }   
