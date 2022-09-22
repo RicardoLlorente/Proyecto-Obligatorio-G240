@@ -161,8 +161,10 @@ function MostrarComentarios(ListaComment) {
     let htmlContentToAppend = "";
     if(ListaComment!=null){
     for(let i=0; i<ListaComment.length; i++ ){
-        cant_coment+=1;
         comentario=ListaComment[i];
+        if(comentario.product==parseInt(localStorage.getItem('prodID'))){
+        cant_coment+=1;
+        
         htmlContentToAppend= `
                             <li class="list-group-item d-flex justify-content-between lh-condensed " id="coment`+cant_coment+`">
                                 <div class="row w-100" >
@@ -184,6 +186,7 @@ function MostrarComentarios(ListaComment) {
          `
         document.getElementById("cat-comment-container").innerHTML+=htmlContentToAppend;
         CruzSoloUsuario(comentario,cant_coment);
+        }
     }
 }
 }
