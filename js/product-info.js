@@ -71,6 +71,7 @@ function puntuación(puntos){
 function MostrarInfoProductos(prod) {
     
     let htmlContentToAppend = "";
+    let htmlContentTorelated = "";
      htmlContentToAppend = `
            
             <h2>${prod.name}</h2><br>
@@ -121,10 +122,27 @@ function MostrarInfoProductos(prod) {
                 </select>
                 </div>
                 </div>
-               
+            ` 
+            htmlContentTorelated+=`
+            <h4>Productos relacionados</h4> 
+            <div class="row justify-content-md-start">
+            `
+            let i=0;
+            for(let related of prod.relatedProducts){
+
+                htmlContentTorelated+=`
+                    <div class="col-3">
+                        <img src="`+related.image+`" alt="product image" id="img`+i+`"  class="img-thumbnail">
+                        <label for="img`+i+`">`+related.name+`</label>
+                    </div>
+                 `
+                i++;
+                }
+            htmlContentTorelated+=`
+                </div>
                 `
-            
-        document.getElementById("cat-info-container").innerHTML+=htmlContentToAppend;
+        document.getElementById("cat-info-container").innerHTML=htmlContentToAppend;
+        document.getElementById("cat-info-related").innerHTML+=htmlContentTorelated;
 }
 function CruzSoloUsuario(comentario,numcom){
     let logeado=localStorage.getItem('mail');

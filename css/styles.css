@@ -227,7 +227,15 @@ a.custom-card:hover {
 .navbar li a:hover{
   color: #fff;
 }
+.negro{
+  color: black;
 
-
-
+}
+.dropdown-item:hover{
+  background-color: black;
+}
+.dropdown-item a:hover{
+  
+  color:black;
+}
 .noTiene{display:none}

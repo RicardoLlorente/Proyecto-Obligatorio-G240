@@ -25,22 +25,23 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <a class="nav-link" href="categories.html">Categorías</a>
-            <ul>
-              <li class="nav-link bg-dark"><a href="products.html" onclick='localStorage.setItem("catID", 101)'>Autos</a></li>
-              <li class="nav-link bg-dark"><a href="products.html"onclick='localStorage.setItem("catID", 102)'>Juguetes</a></li>
-              <li class="nav-link bg-dark"><a href="products.html"onclick='localStorage.setItem("catID", 103)'>Muebles</a></li>
+            <ul class="dropdown-menu bg-light text-dark">
+              <li class="dropdown-item"><a href="products.html" onclick='localStorage.setItem("catID", 101)'>Autos</a></li>
+              <li class="dropdown-item"><a href="products.html"onclick='localStorage.setItem("catID", 102)'>Juguetes</a></li>
+              <li class="dropdown-item"><a href="products.html"onclick='localStorage.setItem("catID", 103)'>Muebles</a></li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="usuario">Usuario</a>
-            <ul>
-              <li class="nav-link bg-dark"><a href="my-profile.html">Perfil Personal</a></li>
-              <li class="nav-link bg-dark"><a  href="#" id="Cerrar_sesion">Cerrar sesión</a></li>          
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" id="usuario">Usuario</a>
+            <ul class="dropdown-menu" aria-labelledby="usuario">
+              <li class="dropdown-item text-dark"><a href="cart.html">Mi Carrito</a></li>
+              <li class="dropdown-item text-dark"><a href="my-profile.html">Mi Perfil</a></li>
+              <li class="dropdown-item text-dark"><a  href="#" id="Cerrar_sesion">Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>
