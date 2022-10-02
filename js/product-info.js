@@ -68,6 +68,10 @@ function puntuación(puntos){
     }
     return estrellas;
 }
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}
 function MostrarInfoProductos(prod) {
     
     let htmlContentToAppend = "";
@@ -131,7 +135,7 @@ function MostrarInfoProductos(prod) {
             for(let related of prod.relatedProducts){
 
                 htmlContentTorelated+=`
-                    <div class="col-3">
+                    <div class="col-3 cursor-active" onclick="setProdID(` + related.id + `)">
                         <img src="`+related.image+`" alt="product image" id="img`+i+`"  class="img-thumbnail">
                         <label for="img`+i+`">`+related.name+`</label>
                     </div>
@@ -210,17 +214,10 @@ function borrar_o_no(){
                 ListadeComentarios.splice(los_id[i]-1,1);
                 los_id.splice(i,1);
                 ListaCommentNew=ListadeComentarios.slice(com_ant,ListadeComentarios.length);
-                /* console.log("el despues")
-                console.log(com_del_usuario)
-                console.log(los_id)
-                console.log(i) */
                 localStorage.setItem('new_comments',JSON.stringify(ListaCommentNew));
                 localStorage.setItem('comments',JSON.stringify(ListadeComentarios));
                 localStorage.setItem('Comentarios del usuario',JSON.stringify(com_del_usuario));
             })}
-        /* console.log(ListadeComentarios);    
-        console.log(com_del_usuario);
-        console.log(los_id); */
         }
     }
 }
