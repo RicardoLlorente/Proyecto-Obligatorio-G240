@@ -15,7 +15,7 @@ function mostrarlista(carro){
     preciounitario[i]=articulo.unitCost;
         document.getElementById("arcitulocomprado").innerHTML+=`
                 <tr class="cursor-active">
-                    <td><img src="${articulo.image}" alt="" class="img-cart"></td>
+                    <td ><img src="${articulo.image}" alt="" class="img-cart"></td>
 
                     <td><p >${articulo.name}</p></td>
 
