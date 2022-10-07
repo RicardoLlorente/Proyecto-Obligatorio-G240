@@ -51,9 +51,81 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+        <div class="text-center p-4">
+          <h2>Carrito de compras</h2>
+        </div>
+          <p class="lead">Artículos a comprar</p>
+          <button class="float-end btn btn-success" onclick="window.location = 'product-info.html'">Volver Atras </button>
+        <div class="" id="articulos">
+        
+        <table class="table text-center table-sm table-hover" >
+          <thead>
+            <tr >
+              <th>Mas vale que te alinies</th>
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="arcitulocomprado" >
+           
+
+          </tbody>
+        </table>
+        <strong><hr></strong>
+        
+        
+         
+        </div>
+        <button class="float-end btn btn-success" id="limpiarcarrito">limpiar carrito</button><br>
+        <br>
+
+        <hr class="mb-4">
+        <h5 class="mb-3">Tipo de envío</h5>
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked=""
+              required="">
+            <label class="custom-control-label" for="goldradio">Premium 2 a 5 días (15%)</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="premiumradio">Express 5 a 8 días (7%)</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="standardradio">Standard 12 a 15 días (5%)</label>
+          </div>
+         
+          <hr class="mb-4">
+          <h5 class="mb-3">Dirección de envío</h5>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="productName">Calle</label>
+              <input type="text" class="form-control" id="calle" value="" name="productName">
+              <div class="invalid-feedback">
+                Ingresa una calle
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="productName">Número</label>
+              <input type="number" class="form-control" id="numeropuerta" value="" name="productName">
+              <div class="invalid-feedback">
+                Ingresa un Número
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="productName">Esquina</label>
+              <input type="text" class="form-control" id="esquina" value="" name="productName">
+              <div class="invalid-feedback">
+                Ingresa una Esquina.
+              </div>
+            </div>
+          </div>
+      
     </div>
   </main>
   <footer class="text-muted">

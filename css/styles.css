@@ -238,4 +238,11 @@ a.custom-card:hover {
   
   color:black;
 }
+.img-cart{
+  width:  100px;
+  height: 55px;
+  vertical-align: bottom;
+  padding: 0px 0px 0px 0px;
+;
+}
 .noTiene{display:none}
