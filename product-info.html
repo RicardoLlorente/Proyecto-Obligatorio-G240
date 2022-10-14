@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -51,17 +52,86 @@
       </div>
     </div>
   </nav>
+  
   <main>
+  
     <div class=" p-4">
       <div class="container" >
-        <div id="cat-info-container">
+        <div id="cat-info-product">
         
         </div>
+   
+  <div id="carouselImgIlus" class="carousel slide text-center col align-self-center w-50 p-3 border" data-bs-ride="carousel">
+            
+          <div class="carousel-inner" id="cat-info-img">
+
+
+          </div>
+         
+          <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#carouselImgIlus" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#carouselImgIlus" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> 
+      
+        <div id="cat-info-com">
+          <div>
+            <br><br><br><br> 
+            <h4>Comentarios</h4>            
+          </div>
+            
+            <ul class="list-group mb-3" id="cat-comment-container">
+            
+            </ul>
+
+            <h4>Comentar:</h4>  
+                <div class="row">
+                <div class="col-4">
+                        <label for="opinion">Tu opinión:</label>
+                        <textarea name="opinion" class="form-control " id="opinión"></textarea>
+                </div>
+                <div class="row">
+                <div class="col-2 my-3">
+                <label for="puntaje" class="ml-auto">Tu puntuación</label>
+                <select name="puntaje" class="custom-select form-select d-block w-100" id="puntaje">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                </div>
+                </div>
+        
+        </div>
+      
         <button type="button" class="btn btn-primary my-3" id="enviar">Enviar</button>
         <hr>
-        <div id="cat-info-related">
         
-        </div>
+        <h5>Productos relacionados</h5> 
+          <div id="carouselRelacionados" class="carousel slide col align-self-center w-25 p-3" data-bs-ride="carousel">
+            
+            <div class="carousel-inner " id="cat-info-related">
+            </div>
+           
+            <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#carouselRelacionados" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#carouselRelacionados" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+
+
+        
       </div>
       
     </div>

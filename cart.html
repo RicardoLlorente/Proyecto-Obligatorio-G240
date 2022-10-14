@@ -18,7 +18,7 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
@@ -27,22 +27,26 @@
           <li class="nav-item dropdown">
             <a class="nav-link" href="categories.html">Categorías</a>
             <ul class="dropdown-menu bg-light text-dark">
-              <li class="dropdown-item"><a href="products.html" onclick='localStorage.setItem("catID", 101)'>Autos</a></li>
-              <li class="dropdown-item"><a href="products.html"onclick='localStorage.setItem("catID", 102)'>Juguetes</a></li>
-              <li class="dropdown-item"><a href="products.html"onclick='localStorage.setItem("catID", 103)'>Muebles</a></li>
+              <li class="dropdown-item"><a href="products.html" onclick='localStorage.setItem("catID", 101)'>Autos</a>
+              </li>
+              <li class="dropdown-item"><a href="products.html"
+                  onclick='localStorage.setItem("catID", 102)'>Juguetes</a></li>
+              <li class="dropdown-item"><a href="products.html" onclick='localStorage.setItem("catID", 103)'>Muebles</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Usuario
             </button>
             <ul class="dropdown-menu bg-light text-dark" aria-labelledby="usuario">
-              <li class="dropdown-item"><a  href="cart.html">Mi Carrito</a></li>
-              <li class="dropdown-item" ><a href="my-profile.html">Mi Perfil</a></li>
-              <li class="dropdown-item" ><a  href="#" id="Cerrar_sesion">Cerrar sesión</a></li>
+              <li class="dropdown-item"><a href="cart.html">Mi Carrito</a></li>
+              <li class="dropdown-item"><a href="my-profile.html">Mi Perfil</a></li>
+              <li class="dropdown-item"><a href="#" id="Cerrar_sesion">Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>
@@ -51,16 +55,16 @@
   </nav>
   <main>
     <div class="container">
-        <div class="text-center p-4">
-          <h2>Carrito de compras</h2>
-        </div>
-          <p class="lead">Artículos a comprar</p>
-          <button class="float-end btn btn-success" onclick="window.location = 'product-info.html'">Volver Atras </button>
-        <div class="" id="articulos">
-        
-        <table class="table text-center table-sm table-hover " >
+      <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+      </div>
+      <p class="lead">Artículos a comprar</p>
+      <button class="float-end btn btn-success" onclick="window.location = 'product-info.html'">Volver Atras </button>
+      <div class="" id="articulos">
+
+        <table class="table text-center table-sm table-hover ">
           <thead>
-            <tr >
+            <tr>
               <th></th>
               <th>Nombre</th>
               <th>Costo</th>
@@ -68,77 +72,67 @@
               <th>Subtotal</th>
             </tr>
           </thead>
-          <tbody id="arcitulocomprado" class=" p-0">
-           
+          <tbody id="arcitulocomprado" class="p-0">
+
 
           </tbody>
         </table>
-        <strong><hr></strong>
-        <table class="table text-center table-sm table-hover " >
-          <thead>
-            <tr >
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th>Total:</th>
-              <th id="resultado"></th>
-            </tr>
-          </thead>
+        <strong>
+          <hr>
+        </strong>
+       
+        </table> 
 
-        </table>
-        
-         
+
+      </div>
+      <button class="float-end btn btn-success" id="limpiarcarrito">limpiar carrito</button><br>
+      <br>
+
+      <hr class="mb-4">
+      <h5 class="mb-3">Tipo de envío</h5>
+      <div class="d-block my-3">
+        <div class="custom-control custom-radio">
+          <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+          <label class="custom-control-label" for="goldradio">Premium 2 a 5 días (15%)</label>
         </div>
-        <button class="float-end btn btn-success" id="limpiarcarrito">limpiar carrito</button><br>
-        <br>
+        <div class="custom-control custom-radio">
+          <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="premiumradio">Express 5 a 8 días (7%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="standardradio">Standard 12 a 15 días (5%)</label>
+        </div>
 
         <hr class="mb-4">
-        <h5 class="mb-3">Tipo de envío</h5>
-        <div class="d-block my-3">
-          <div class="custom-control custom-radio">
-            <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked=""
-              required="">
-            <label class="custom-control-label" for="goldradio">Premium 2 a 5 días (15%)</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="premiumradio">Express 5 a 8 días (7%)</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="standardradio">Standard 12 a 15 días (5%)</label>
-          </div>
-         
-          <hr class="mb-4">
-          <h5 class="mb-3">Dirección de envío</h5>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="productName">Calle</label>
-              <input type="text" class="form-control" id="calle" value="" name="productName">
-              <div class="invalid-feedback">
-                Ingresa una calle
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="productName">Número</label>
-              <input type="number" class="form-control" id="numeropuerta" value="" name="productName">
-              <div class="invalid-feedback">
-                Ingresa un Número
-              </div>
+        <h5 class="mb-3">Dirección de envío</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="productName">Calle</label>
+            <input type="text" class="form-control" id="calle" value="" name="productName">
+            <div class="invalid-feedback">
+              Ingresa una calle
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="productName">Esquina</label>
-              <input type="text" class="form-control" id="esquina" value="" name="productName">
-              <div class="invalid-feedback">
-                Ingresa una Esquina.
-              </div>
+          <div class="col-md-3 mb-3">
+            <label for="productName">Número</label>
+            <input type="number" class="form-control" id="numeropuerta" value="" name="productName">
+            <div class="invalid-feedback">
+              Ingresa un Número
             </div>
           </div>
-      
-    </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="productName">Esquina</label>
+            <input type="text" class="form-control" id="esquina" value="" name="productName">
+            <div class="invalid-feedback">
+              Ingresa una Esquina.
+            </div>
+          </div>
+        </div>
+
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">

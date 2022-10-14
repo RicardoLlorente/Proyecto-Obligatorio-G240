@@ -12,7 +12,7 @@ let com_del_usuario = [];
 let cant_coment = 0;
 let cant_new_comm = 0;
 let com_ant;
-let paraElCarrito=[]
+let ElCarrito=[]
 let articuloParaCarrito;
 
 ///////////////////////////////////////////////////////////////////
@@ -77,16 +77,16 @@ function setProdID(id) {
 }
 
  function setProdCart() {
-    let antesAgregado=paraElCarrito.some(art => art.name === articuloParaCarrito.name);
+    let antesAgregado=ElCarrito.some(art => art.name === articuloParaCarrito.name);
 
     if(antesAgregado==false){
-        paraElCarrito.push(articuloParaCarrito);
-        localStorage.setItem("newBuys",JSON.stringify(paraElCarrito));
+        ElCarrito.push(articuloParaCarrito);
+        localStorage.setItem("newBuys",JSON.stringify(ElCarrito));
         window.location = "cart.html"
     }else{
         alert('El articulo seleccionado ya esta en el carrito')
         var mensaje = confirm("Desea ver el carrito");
-        //Detectamos si el usuario acepto el mensaje
+        
         if (mensaje) {
             window.location = "cart.html"
             }
@@ -97,7 +97,7 @@ function setProdID(id) {
 function MostrarInfoProductos(prod) {
     let htmlContentToAppend = "";
     let htmlContentTorelated = "";
-
+    let htmlContentToimg = "";
     articuloParaCarrito = {
         "id": prod.id,
         "name": prod.name,
@@ -110,16 +110,43 @@ function MostrarInfoProductos(prod) {
         
             <h2>${prod.name}</h2><button onclick="setProdCart()" class="float-end btn btn-success">comprar</button><br>
             <hr>
-
+            
+            <p class="position-relative text-dark"><a class="position-absolute text-secondary top-0 end-0" href="products.html" ><i class="fas fa-arrow-left"></i> Volver al Listado</a></p>
+           
             <p><strong>Precio</strong>
             <br>${prod.currency} ${prod.cost}</p>
             <p><strong>Descripcion</strong><br>${prod.description}</p>
             <p><strong>Categoria</strong><br>${prod.category}</p>
             <p><strong>Cantidad de vendidos</strong><br>${prod.soldCount}</p>
-            <p><strong>Imágenes Ilustrativas</strong><br></p>
-            <div class="row justify-content-md-center">`
+            <p><strong>Imágenes Ilustrativas</strong></p>`
+/*             <div class="row justify-content-md-center">`
+ */            htmlContentToimg += `
+            <p><strong>Imágenes Ilustrativas</strong></p>
+            <div class="row justify-content-md-start">
+           
 
-    for (image of prod.images) {
+            `
+    let j = 0;
+    for (let image of prod.images) {
+        if(j==0){  
+            htmlContentToimg += `<div class="carousel-item active cursor-active text-center">
+                                        <img src="`+ image + `" class="d-block w-100" alt="product image">
+                                     </div>`
+        }else{
+        htmlContentToimg += `
+                    
+                        <div class="carousel-item cursor-active text-center">
+                            <img src="`+ image + `" class="d-block w-100" alt="product image">
+                        </div>
+                 `
+        }
+        j++;
+    }
+    htmlContentToimg += `
+                </div>
+                `
+
+ /*   for (image of prod.images) {
 
         htmlContentToAppend += `
                 <div class="col">
@@ -129,53 +156,34 @@ function MostrarInfoProductos(prod) {
              `
     }
     htmlContentToAppend += `</div>
-            <div>
-            <br><br><br><br> 
-            <h4>Comentarios</h4>            
-            </div>
-            
-            <ul class="list-group mb-3" id="cat-comment-container">
-            
-            </ul>
-
-            <h4>Comentar:</h4>  
-                <div class="row">
-                <div class="col-4">
-                        <label for="opinion">Tu opinión:</label>
-                        <textarea name="opinion" class="form-control " id="opinión"></textarea>
-                </div>
-                <div class="row">
-                <div class="col-2 my-3">
-                <label for="puntaje" class="ml-auto">Tu puntuación</label>
-                <select name="puntaje" class="custom-select form-select d-block w-100" id="puntaje">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-                </div>
-                </div>
-            `
+            `*/
     htmlContentTorelated += `
-            <h4>Productos relacionados</h4> 
             <div class="row justify-content-md-start">
+            
             `
     let i = 0;
     for (let related of prod.relatedProducts) {
-
+        if(i==0){  
+            htmlContentTorelated += `<div class="carousel-item active cursor-active text-center" onclick="setProdID(` + related.id + `)">
+                                        <img src="`+ related.image + `" class="d-block w-100" alt="product image" id="img` + i + `">
+                                        <label for="img`+ i + `"><strong>` + related.name + `</strong></label>
+                                     </div>`
+        }else{
         htmlContentTorelated += `
-                    <div class="col-3 cursor-active" onclick="setProdID(` + related.id + `)">
-                        <img src="`+ related.image + `" alt="product image" id="img` + i + `"  class="img-thumbnail">
-                        <label for="img`+ i + `">` + related.name + `</label>
-                    </div>
+                    
+                        <div class="carousel-item cursor-active text-center " onclick="setProdID(` + related.id + `)">
+                            <img src="`+ related.image + `" class="d-block w-100" alt="product image"  id="img` + i + `">
+                            <label for="img`+ i + `"><strong>` + related.name + `</strong></label>
+                        </div>
                  `
+        }
         i++;
     }
     htmlContentTorelated += `
                 </div>
                 `
-    document.getElementById("cat-info-container").innerHTML = htmlContentToAppend;
+    document.getElementById("cat-info-product").innerHTML = htmlContentToAppend;
+    document.getElementById("cat-info-img").innerHTML = htmlContentToimg;
     document.getElementById("cat-info-related").innerHTML += htmlContentTorelated;
 }
 function CruzSoloUsuario(comentario, numcom) {
@@ -247,9 +255,9 @@ function borrar_o_no() {
 document.addEventListener("DOMContentLoaded", function (e) {
     articuloParaCarrito={}
     prod_id = localStorage.getItem("prodID");
-    paraElCarrito=JSON.parse(localStorage.getItem("newBuys"));
-    if(paraElCarrito==null){
-        paraElCarrito=[];
+    ElCarrito=JSON.parse(localStorage.getItem("newBuys"));
+    if(ElCarrito==null){
+        ElCarrito=[];
     }
     getJSONData(PRODUCT_INFO_URL + prod_id + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
