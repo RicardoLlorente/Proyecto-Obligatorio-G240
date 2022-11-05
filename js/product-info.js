@@ -81,7 +81,7 @@ function setProdID(id) {
 
     if(antesAgregado==false){
         ElCarrito.push(articuloParaCarrito);
-        localStorage.setItem("newBuys",JSON.stringify(ElCarrito));
+        localStorage.setItem("buys",JSON.stringify(ElCarrito));
         window.location = "cart.html"
     }else{
         alert('El articulo seleccionado ya esta en el carrito')
@@ -117,8 +117,7 @@ function MostrarInfoProductos(prod) {
             <br>${prod.currency} ${prod.cost}</p>
             <p><strong>Descripcion</strong><br>${prod.description}</p>
             <p><strong>Categoria</strong><br>${prod.category}</p>
-            <p><strong>Cantidad de vendidos</strong><br>${prod.soldCount}</p>
-            <p><strong>Imágenes Ilustrativas</strong></p>`
+            <p><strong>Cantidad de vendidos</strong><br>${prod.soldCount}</p>`
 /*             <div class="row justify-content-md-center">`
  */            htmlContentToimg += `
             <p><strong>Imágenes Ilustrativas</strong></p>
@@ -229,6 +228,8 @@ function MostrarComentarios(ListaComment) {
                 CruzSoloUsuario(comentario, cant_coment);
             }
         }
+        localStorage.setItem('comments', JSON.stringify(ListadeComentarios));
+        borrar_o_no();
     }
 }
 function borrar_o_no() {
@@ -255,7 +256,7 @@ function borrar_o_no() {
 document.addEventListener("DOMContentLoaded", function (e) {
     articuloParaCarrito={}
     prod_id = localStorage.getItem("prodID");
-    ElCarrito=JSON.parse(localStorage.getItem("newBuys"));
+    ElCarrito=JSON.parse(localStorage.getItem("buys"));
     if(ElCarrito==null){
         ElCarrito=[];
     }
@@ -279,8 +280,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
 
             MostrarComentarios(ListadeComentarios);
-            localStorage.setItem('comments', JSON.stringify(ListadeComentarios));
-            borrar_o_no();
         }
     });
 
