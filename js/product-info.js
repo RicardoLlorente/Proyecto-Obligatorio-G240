@@ -118,8 +118,7 @@ function MostrarInfoProductos(prod) {
             <p><strong>Descripcion</strong><br>${prod.description}</p>
             <p><strong>Categoria</strong><br>${prod.category}</p>
             <p><strong>Cantidad de vendidos</strong><br>${prod.soldCount}</p>`
-/*             <div class="row justify-content-md-center">`
- */            htmlContentToimg += `
+            htmlContentToimg += `
             <p><strong>Imágenes Ilustrativas</strong></p>
             <div class="row justify-content-md-start">
            

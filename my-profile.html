@@ -70,14 +70,17 @@
       <div class="row justify-content-md-center">
 
       <div class="col-md-8 order-md-1">
-        <form class="row g-3 needs-validation" id="superform" novalidate>
+        <form class="row g-3 needs-validation" id="formPerfil" novalidate>
         <div class="col">
           <br><br>
           <h1 class="mb-3">Perfil</h1>
+          <!-- <div>
+            <img src="" id="laimagen" alt="foto_perfil">
+          </div> -->
           <hr class="my-4">
           <div class="row g-3">
             <div class="col-sm-6">
-              <label for="priNombre" class="form-label">Primer nombre</label>
+              <label for="priNombre" class="form-label">Primer nombre*</label>
               <input type="text" class="form-control" id="priNombre" required>
               <div class="invalid-feedback">
                 Debe ingresar un nombre
@@ -87,34 +90,36 @@
 
             <div class="col-sm-6">
               <label for="segNombre" class="form-label">Segundo nombre</label>
-              <input type="text" class="form-control" id="segNombre" required>
+              <input type="text" class="form-control" id="segNombre">
               
             </div>
             <div class="col-sm-6">
-              <label for="priApellido" class="form-label">Primer apellido</label>
+              <label for="priApellido" class="form-label">Primer apellido*</label>
               <input type="text" class="form-control" id="priApellido" required>
               <div class="invalid-feedback">
-                Debe ingresar un nombre
+                Debe ingresar un Apellido
               </div>
             </div>
             
 
             <div class="col-sm-6">
               <label for="segApellido" class="form-label">Segundo apellido</label>
-              <input type="text" class="form-control" id="segApellido" required>
-              <div class="invalid-feedback">
-                Debe ingresar un apellido
-              </div>
+              <input type="text" class="form-control" id="segApellido">
               
             </div>
             <div class="col-sm-6">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Email*</label>
               <input type="email" class="form-control" id="email" required>
               <div class="invalid-feedback">
                 Debe ingresar un email
               </div>
             </div>
 
+            <div class="col-sm-6">
+              <label for="imagen" class="form-label">Imagen del perfil</label>
+              <input type="file" class="form-control" id="imagen">
+               
+            </div>
             <div class="col-sm-6">
               <label for="telefono" class="form-label">Teléfono de contacto</label>
               <input type="number" class="form-control" id="telefono">
@@ -123,7 +128,7 @@
             <br><br><br><br><br><br>
             <hr>
             <div class="col-sm-3">
-              <button class="btn btn-primary" type="submit" id="Registrar">Guardar Cambios</button>
+              <button class="btn btn-primary" type="submit" id="GuardarDatos">Guardar Cambios</button>
             </div>
 
             
@@ -146,6 +151,10 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <div class="alert alert-success alert-dismissible fade top-50 start-50 translate-middle" role="alert" id="alert-success">
+    <p>Guardado</p>
+    <button type="button" class="btn-close" id="cerraralerta" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
